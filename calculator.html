@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic Calculator</title>
+<style>
+    body{
+    padding:0;
+    margin:0;
+    width:100%;
+    height:100vh;
+}
+.main{
+    width:300px;
+    height:50ppx;
+    border-style:ridge;
+    border-radius:10px;
+    background-color:red;
+    margin-left:30px;
+    margin-top:30px;
+}
+.screen{
+    border-radius:10px;
+    margin-top:5px;
+    margin-left:5px;
+}
+.display{
+    height:90px;
+    width:96%;
+    font-size:25px;
+    border-radius:10px;
+    border-style:hidden ;
+}
+.allbtn{
+    height:393px;
+    background-color:yellow;
+    margin-top:5px;
+    margin-left:5px;
+    margin-right:5px;
+    border-radius:10px;
+}
+.classbtn{
+    height:50px;
+    width:50px;
+    border-radius:20px;
+    text-align:center;
+    font-size:25px;
+    text-shadow:1px 2px 3px blue;
+    margin-left:15px;
+    margin-top:25px;
+}
+
+</style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="screen">
+        <input class="display" onclick="back()" name="display" type="text">
+            </div>
+            <div class="allbtn">
+                <div class="row1">
+                    <button type="button" class="classbtn">C</button>
+                    <button type="button" id="percentbtn" class="classbtn">%</button>
+                    <button type="button" id="backbtn" class="classbtn">X</button>
+                    <button type="button" class="classbtn">/</button>
+                </div>
+                <div class="row2">
+                    <button type="button" class="classbtn">7</button>
+                    <button type="button" class="classbtn">8</button>
+                    <button type="button" class="classbtn">9</button>
+                    <button type="button" class="classbtn">*</button>
+                </div>
+                <div class="row3">
+                    <button type="button" class="classbtn">4</button>
+                    <button type="button" class="classbtn">5</button>
+                    <button type="button" class="classbtn">6</button>
+                    <button type="button" class="classbtn">-</button>
+                </div>
+                <div class="row4">
+                    <button type="button" class="classbtn">1</button>
+                    <button type="button" class="classbtn">2</button>
+                    <button type="button" class="classbtn">3</button>
+                    <button type="button" class="classbtn">+</button>
+                </div>
+                <div class="row5">
+                    <button type="button" class="classbtn">00</button>
+                    <button type="button" class="classbtn">0</button>
+                    <button type="button" class="classbtn">.</button>
+                    <button type="button" class="classbtn">=</button>
+                </div>
+            </div>
+        </div>
+<script>
+    let string="";
+    let buttons = document.querySelectorAll('.classbtn');
+Array.from(buttons).forEach((classbtn)=>{
+    classbtn.addEventListener('click',(e)=>{
+        if(e.target.innerHTML == '='){
+            string=eval(string);
+            document.querySelector('input').value=string;
+        }
+        else if(e.target.innerHTML == 'C'){
+            string=""
+            document.querySelector('input').value=string;
+            }
+        else{
+            
+            string=string+e.target.innerHTML
+            document.querySelector('input').value=string;
+        }
+    })
+})
+</script>
+    </body>
+</html>
